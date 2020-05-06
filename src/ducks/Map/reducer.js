@@ -1,21 +1,28 @@
-import * as types from './constants';
+import * as types from './types'
 
-const initState = {
-    data: [],
+const init = {
+    stateExample: "null",
+    apartInfos : [],
 }
 
+function reducer(state=init, action){
 
-function reducer(state = initState, action){
     switch(action.type){
-        case types.SET_DATA_LIST:
+        
+        case types.SET_APT_INFOS:
             return {
                 ...state,
-                data: action.payload,
+                apartInfos: action.payload,
             }
-        default: 
+        case types.UPDATE_APT:
+            console.log("reducer : success")
+            return {
+                ...state,
+                stateExample: action.payload,
+            }
+        default:
             return { ...state }
     }
-
 }
 
 export default reducer;
